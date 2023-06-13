@@ -1,6 +1,6 @@
 Theme for a personal aggregator, based on [@sharu725 cards](https://github.com/sharu725/cards)  (Thanks!).
 
-This is a basic version just in case somebody wants to use it. The actual page is deployed in github pages using the branch gh-pages.
+This is the actual page which will be deployed in github pages.
 
 Demo: [ElMundoEsImperfecto](https://elmundoesimperfecto.com)
 
