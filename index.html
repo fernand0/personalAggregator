@@ -11,7 +11,7 @@ layout: default
       <div class="col-12 col-md-6 col-lg-4">
        <a href="{{ post.url | prepend: site.url }}" class="index-anchor">
 
-        <div class="card rounded overflow-hidden">  
+        <div class="card rounded overflow-hidden">
           <div class="image">
             {% if post.image %}
             <img src="{{post.image | relative_url}}" alt="{{post.title}}">
@@ -19,26 +19,24 @@ layout: default
             <div class="card-body">
 
     {% assign cats = "twitter,mastodon,reddit,github,flickr,goodreads,youtube,wordpress,devto,tumblr,imgur,blipfm" | split: "," %}
-	    
     {% for cat in post.categories %}
-    {% if cats contains cat %}
-    	<div class="{{post.categories}}">
-    {% endif %}
+    	{% if cats contains cat %}
+    		<div class="{{post.categories}}">
+    	{% endif %}
     {% endfor %}
-		    <h2 class="panel-title"><small>{{ post.title | truncate: 25 }}</small></h2>
-
+    <h2 class="panel-title"><small>{{ post.title | truncate: 25 }}</small></h2>
     {% for cat in post.categories %}
-    {% if cats contains cat %}
-    	</div>
-    {% endif %}
+    	{% if cats contains cat %}
+    		</div>
+    	{% endif %}
     {% endfor %}
 		    <!-- <p class="p-0 my-1 mx-0"><span class="post-meta"><small>{{ post.date | date: "%b %-d, %Y" }}</small></span></p> -->
-		    <p class="p-0 my-1 mx-0"><span class="post-meta"><small>{{ post.date | date: "(%H:%M)" }}</small></span></p>
-	      <p><small>{{ post.excerpt }} </small></p>
+		    <p class="p-0 my-1 mx-0"><span class="post-meta">{{ post.date | date: "(%H:%M)" }}</span></p>
             </div>
           </div>
         </div>
       </a>
+	      <p>{{ post.excerpt }}</p>
       </div>
     {% endfor %}
   </div>

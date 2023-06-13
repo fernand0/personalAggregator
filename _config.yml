@@ -38,10 +38,11 @@ paginate_path: /page:num/
 # disqus-shortname: webjeda-demo
 
 #social
-facebook: http://facebook.com/fernando.tricas
-twitter: http://twitter.com/fernand0
-github: http://github.com/fernand0
+facebook: https://facebook.com/fernando.tricas
+twitter: https://twitter.com/fernand0
+github: https://github.com/fernand0
 email: fernand0+web@elmundoesimperfecto.com
+mastodon: https://mastodon.social/@fernand0
 
 #facebook like box
 # fb-like-box: no
