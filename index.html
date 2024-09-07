@@ -1,92 +1,121 @@
 ---
 layout: default
 ---
+          <div id="ca89958b-ca07-4839-ab11-49f334ab24a6">
+            <div id="Services" class="f18gr2zl f1hx8b4t">
+              <div class="container g-0 f9mv53e">
+                <!--<h2 class="animate-entry text-center f1f45za8">Services Offered by El mundo es imperfecto</h2>-->
+                <div class="row row-cols-1 gx-5 row-cols-lg-3">
 
-<div class="home py-4 py-md-5">
-  <div class="row flexRow">
-	<!--
-	<div class="grid" style="--bs-columns: 3;">
-	-->
     {% for post in site.posts reversed %}   
-      <div class="col-12 col-md-6 col-lg-4">
-       <a href="{{ post.url | prepend: site.url }}" class="index-anchor">
+                  <div class="animate-entry feature col d-flex flex-column mb-5">
+                    <div class="f1otqxop">
+                      <h3 class="f1gbvfvs"><a href="{{ post.url | prepend: site.url }}">
+			{% if post.title != "" %}
+		          {{ post.title | truncate: 25 }}
+                        {% else %}
+			  Entradas
+			{% endif %}
+				    </a></h3>
+		    <p >{{ post.date | date: "(%y-%m-%d %H:%M)" }}</p>
+                      <div class="pe-4 f3p0cc9">
+                        <p>
+   {{ post.excerpt }}
+			</p>
+	      </div>
+	    </div>
+	  </div>
+      {% endfor %}
 
-        <div class="card rounded overflow-hidden">  
-          <div class="image">
-            {% if post.image %}
-            <img src="{{post.image | relative_url}}" alt="{{post.title}}">
-            {% endif %}
-            <div class="card-body">
-
-    {% assign cats = "twitter,mastodon,reddit,github,flickr,goodreads,youtube,wordpress,devto,tumblr,imgur,blipfm" | split: "," %}
-	    
-    {% for cat in post.categories %}
-    {% if cats contains cat %}
-    	<div class="{{post.categories}}">
-    {% endif %}
-    {% endfor %}
-		    <h2 class="panel-title"><small>{{ post.title | truncate: 25 }}</small></h2>
-
-    {% for cat in post.categories %}
-    {% if cats contains cat %}
-    	</div>
-    {% endif %}
-    {% endfor %}
-		    <!-- <p class="p-0 my-1 mx-0"><span class="post-meta"><small>{{ post.date | date: "%b %-d, %Y" }}</small></span></p> -->
-		    <p class="p-0 my-1 mx-0"><span class="post-meta"><small>{{ post.date | date: "(%H:%M)" }}</small></span></p>
-	      <p><small>{{ post.excerpt }} </small></p>
+	      </div>
+	    </div>
+	  </div>
+	  </div>
+          <div id="2a513986-5db6-454d-abe0-baaf26491917">
+            <div id="Contact" class="fhk0rto f1hx8b4t">
+              <div class="container g-0 f9mv53e">
+                <div class="animate-entry fcdpsbx">
+                  <h2 class="text-center f1o1p964">Contacto</h2>
+                </div>
+                <div class="animate-entry row g-5 pb-5 d-flex flex-row justify-content-center">
+                  <div class="d-flex flex-column col-lg-6 col-sm-12 fbfqpno">
+			  Fernando Tricas García
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="75751398-48f1-4c66-9f8e-30f0d84b010f">
+            <div id="Footer" class="f1tmwlp7 f1hx8b4t f1vaphum">
+              <div class="container g-0 f9mv53e f45h align-items-center">
+                <div class="row f1fbucww align-items-center">
+                  <div class="col align-items-center text-decoration-none logo-or-title">
+                    <h3>El mundo es imperfecto</h3>
+                  </div>
+                </div>
+                <div class="row  legal-and-made-with">
+                  <div class="col f1p0cgam copyright">© 2024 <!-- -->El mundo es imperfecto</div><a
+                    class="col col-auto justify-content-end align-content-center" href="https://www.soloist.ai"
+                    target="_blank"><span class="logo"><svg width="145" height="26" viewBox="0 0 145 26" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M0 8.0284H1.86435L5.10582 15.9432H5.22514L8.46662 8.0284H10.331V18.2102H8.86932V10.8423H8.77486L5.77202 18.1953H4.55895L1.55611 10.8373H1.46165V18.2102H0V8.0284Z"
+                          fill="currentColor"></path>
+                        <path
+                          d="M14.6674 18.3793C13.2157 18.3793 12.0872 17.554 12.0872 16.0525C12.0872 14.3175 13.5687 13.9396 15.0154 13.7706C16.3876 13.6115 16.9444 13.6214 16.9444 13.0795V13.0447C16.9444 12.1797 16.4522 11.6775 15.4927 11.6775C14.4934 11.6775 13.9366 12.1996 13.7179 12.7415L12.3208 12.4233C12.818 11.0312 14.0907 10.4744 15.4728 10.4744C16.6859 10.4744 18.4359 10.9169 18.4359 13.1392V18.2102H16.9842V17.1662H16.9245C16.6412 17.7379 15.9302 18.3793 14.6674 18.3793ZM14.9906 17.1861C16.2285 17.1861 16.9494 16.3608 16.9494 15.456V14.4716C16.7356 14.6854 15.5922 14.8146 15.1099 14.8793C14.2498 14.9936 13.5439 15.277 13.5439 16.0724C13.5439 16.8082 14.1504 17.1861 14.9906 17.1861Z"
+                          fill="currentColor"></path>
+                        <path
+                          d="M23.2745 18.3594C21.4201 18.3594 20.0827 16.8778 20.0827 14.4069C20.0827 11.9311 21.44 10.4744 23.2844 10.4744C24.7063 10.4744 25.2134 11.3395 25.4819 11.8118H25.5714V8.0284H27.0579V18.2102H25.6062V17.022H25.4819C25.2134 17.5092 24.6665 18.3594 23.2745 18.3594ZM23.6026 17.0916C24.8853 17.0916 25.5962 15.9979 25.5962 14.392C25.5962 12.7962 24.9002 11.7372 23.6026 11.7372C22.2603 11.7372 21.5842 12.8757 21.5842 14.392C21.5842 15.9233 22.2752 17.0916 23.6026 17.0916Z"
+                          fill="currentColor"></path>
+                        <path
+                          d="M32.4707 18.3643C30.2186 18.3643 28.8365 16.8132 28.8365 14.4418C28.8365 12.0952 30.2385 10.4744 32.3663 10.4744C34.0964 10.4744 35.747 11.5533 35.747 14.3125V14.8395H30.318C30.3578 16.3111 31.2129 17.1364 32.4856 17.1364C33.3308 17.1364 33.9771 16.7685 34.2456 16.0476L35.6525 16.3011C35.3145 17.544 34.1362 18.3643 32.4707 18.3643ZM30.323 13.7258H34.2903C34.2853 12.5575 33.5297 11.7024 32.3762 11.7024C31.1681 11.7024 30.3826 12.642 30.323 13.7258Z"
+                          fill="currentColor"></path>
+                        <path
+                          d="M42.7569 18.2102L40.5098 10.5739H42.046L43.5424 16.1818H43.617L45.1184 10.5739H46.6547L48.1461 16.1569H48.2207L49.7072 10.5739H51.2434L49.0012 18.2102H47.4849L45.9338 12.6967H45.8194L44.2683 18.2102H42.7569Z"
+                          fill="currentColor"></path>
+                        <path
+                          d="M52.6541 18.2102V10.5739H54.1406V18.2102H52.6541ZM53.4048 9.39559C52.8878 9.39559 52.4652 8.99786 52.4652 8.51064C52.4652 8.02343 52.8878 7.62073 53.4048 7.62073C53.9169 7.62073 54.3445 8.02343 54.3445 8.51064C54.3445 8.99786 53.9169 9.39559 53.4048 9.39559Z"
+                          fill="currentColor"></path>
+                        <path
+                          d="M59.7051 10.5739V11.767H58.139V15.968C58.139 16.8281 58.5716 16.9872 59.0538 16.9872C59.2924 16.9872 59.4764 16.9425 59.5758 16.9226L59.8443 18.1506C59.6703 18.2152 59.3521 18.3047 58.8798 18.3096C57.7065 18.3345 56.6476 17.6633 56.6525 16.2763V11.767H55.5339V10.5739H56.6525V8.74431H58.139V10.5739H59.7051Z"
+                          fill="currentColor"></path>
+                        <path
+                          d="M63 13.6761V18.2102H61.5135V8.0284H62.9801V11.8168H63.0746C63.4325 10.9915 64.1484 10.4744 65.3366 10.4744C66.9077 10.4744 67.9517 11.4489 67.9517 13.353V18.2102H66.4652V13.5319C66.4652 12.4133 65.8537 11.7621 64.8295 11.7621C63.7706 11.7621 63 12.4581 63 13.6761Z"
+                          fill="currentColor"></path>
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                          d="M89.641 15.3033C90.4336 15.7609 91.447 15.4893 91.9047 14.6967C92.3623 13.9041 92.0907 12.8906 91.2981 12.433L88.3063 10.7057C87.5137 10.2481 86.5002 10.5196 86.0426 11.3122C85.585 12.1048 85.8566 13.1183 86.6492 13.576L89.641 15.3033Z"
+                          fill="currentColor"></path>
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                          d="M86.7608 6.86572C86.3084 6.61002 85.7851 6.46398 85.2274 6.46398C83.5111 6.46398 82.1197 7.84757 82.1197 9.55431C82.1197 10.0211 82.2237 10.4637 82.4101 10.8605C81.328 10.3502 80.5791 9.24946 80.5791 7.97378C80.5791 6.21214 82.0072 4.78406 83.7688 4.78406C85.1408 4.78406 86.3105 5.65031 86.7608 6.86572Z"
+                          fill="currentColor"></path>
+                        <path
+                          d="M91.4766 2.72014C89.9196 1.82121 88.001 1.82254 86.4452 2.72362L82.1196 5.22899C82.7181 4.92363 83.3358 4.86604 84.2246 5.37906L98.0258 13.3472V8.04868C98.0258 7.09113 97.5149 6.20632 96.6856 5.72755L91.4766 2.72014Z"
+                          fill="currentColor"></path>
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                          d="M91.1888 19.1496C91.6361 19.4014 92.1525 19.545 92.7024 19.545C94.4091 19.5451 95.7927 18.1615 95.7927 16.4547C95.7927 15.9802 95.6858 15.5307 95.4946 15.1289C96.5996 15.6301 97.3682 16.7429 97.3682 18.0353C97.3682 19.7969 95.9401 21.225 94.1784 21.225C92.8088 21.225 91.6408 20.3617 91.1888 19.1496Z"
+                          fill="currentColor"></path>
+                        <path
+                          d="M86.4705 23.2888C88.0275 24.1878 89.9461 24.1865 91.5019 23.2854L95.8275 20.78C95.229 21.0854 94.6113 21.1429 93.7225 20.6299L79.9214 12.6617L79.9214 17.9603C79.9214 18.9179 80.4322 19.8027 81.2615 20.2814L86.4705 23.2888Z"
+                          fill="currentColor"></path>
+                        <path
+                          d="M110.122 20.0155C107.796 20.0155 105.725 19.2338 104.161 17.7876L105.822 15.8138C107.093 16.9082 108.539 17.5726 110.239 17.5726C111.685 17.5726 112.428 16.9082 112.428 16.0678C112.428 15.1102 111.646 14.8171 109.594 14.348C106.76 13.7031 104.747 12.9018 104.747 10.3026C104.747 7.82062 106.78 6.12036 109.711 6.12036C111.9 6.12036 113.6 6.80437 114.968 7.97696L113.464 10.0485C112.272 9.09092 110.923 8.56326 109.633 8.56326C108.402 8.56326 107.659 9.20818 107.659 10.0094C107.659 10.9866 108.461 11.2993 110.532 11.7683C113.425 12.4133 115.34 13.2732 115.34 15.7551C115.34 18.3153 113.405 20.0155 110.122 20.0155Z"
+                          fill="currentColor"></path>
+                        <path
+                          d="M121.903 20.0155C118.893 20.0155 116.372 17.5922 116.372 14.7193C116.372 11.8465 118.893 9.4427 121.903 9.4427C124.893 9.4427 127.394 11.8465 127.394 14.7193C127.394 17.5922 124.893 20.0155 121.903 20.0155ZM121.903 17.6117C123.407 17.6117 124.678 16.2828 124.678 14.7193C124.678 13.1559 123.407 11.8465 121.903 11.8465C120.378 11.8465 119.108 13.1559 119.108 14.7193C119.108 16.2828 120.378 17.6117 121.903 17.6117Z"
+                          fill="currentColor"></path>
+                        <path d="M128.934 19.781V6.12036H131.787V19.781H128.934Z" fill="currentColor"></path>
+                        <path
+                          d="M138.851 20.0155C135.841 20.0155 133.32 17.5922 133.32 14.7193C133.32 11.8465 135.841 9.4427 138.851 9.4427C141.841 9.4427 144.343 11.8465 144.343 14.7193C144.343 17.5922 141.841 20.0155 138.851 20.0155ZM138.851 17.6117C140.356 17.6117 141.626 16.2828 141.626 14.7193C141.626 13.1559 140.356 11.8465 138.851 11.8465C137.327 11.8465 136.056 13.1559 136.056 14.7193C136.056 16.2828 137.327 17.6117 138.851 17.6117Z"
+                          fill="currentColor"></path>
+                      </svg></span></a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </a>
-      </div>
-    {% endfor %}
-  </div>
-</div> 
-    
-<!--
-  <div class="row justify-content-center">
-    <div class="col-md-4">
-        {% if paginator.total_pages > 1 %}
-        <ul class="pagination">
-          {% if paginator.previous_page %}
-            <li class="page-item">
-              <a class="page-link" href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo; Prev</a>
-            </li>
-          {% else %}
-            <li class="page-item disabled">
-              <span class="page-link">Previous</span>
-            </li>
-          {% endif %}
-
-          {% for page in (1..paginator.total_pages) %}
-            {% if page == paginator.page %}
-              <li class="page-item active">
-                <span class="page-link">{{ page }}</span>
-              </li>
-            {% elsif page == 1 %}
-              <li class="page-item">
-                <a class="page-link" href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">{{ page }}</a>
-              </li>
-            {% else %}
-              <li class="page-item">
-                <a class="page-link" href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a></li>
-            {% endif %}
-          {% endfor %}
-
-          {% if paginator.next_page %}
-            <li class="page-item">
-              <a class="page-link" href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Next &raquo;</a>
-            </li>
-          {% else %}
-            <li class="page-item" disabled>
-              <span class="page-link">Next</span>
-            </li>
-          {% endif %}
-          </ul>
-        {% endif %}
+      </main>
     </div>
   </div>
--->
+ 
+    
 
-</div>
