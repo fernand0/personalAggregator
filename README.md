@@ -1,6 +1,10 @@
-Theme for a personal aggregator, based on [@sharu725 cards](https://github.com/sharu725/cards)  (Thanks!).
+This site is a personal aggregator and it is developped with jekyll-pages. It neds:
 
-This is the actual page which will be deployed in github pages.
+* The program generating the posts: [personalAggregartor.py](https://github.com/fernand0/scripts/blob/master/personalAggregator.py) 
+   * It runs on local (pending integration with actions or something similar).
+   * It needs the project [socialModules](https://github.com/fernand0/socialModules/) in order to get information from RSS and other sources
+* This jekyll site
+   * The template has been generated tweaking Mozilla Foundation [https://soloist.ai/](Solo) generated code. You can see the original at [elmundoesimperfecto at soloist](https://soloist.ai/elmundoesimperfecto]
 
 Demo: [ElMundoEsImperfecto](https://elmundoesimperfecto.com)
 
@@ -8,5 +12,12 @@ Demo: [ElMundoEsImperfecto](https://elmundoesimperfecto.com)
 * Fork the repository
 
 More to come...
+
+# Old (but gratetul)
+
+This site was born based on [@sharu725 cards](https://github.com/sharu725/cards)  (Thanks!).
+
+This is the actual page which will be deployed in github pages.
+
 
 For more themes visit - [https://jekyll-themes.com](https://jekyll-themes.com)
