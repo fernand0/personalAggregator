@@ -4,7 +4,7 @@ This site is a personal aggregator and it is developped with jekyll-pages. It ne
    * It runs on local (pending integration with actions or something similar).
    * It needs the project [socialModules](https://github.com/fernand0/socialModules/) in order to get information from RSS and other sources
 * This jekyll site
-   * The template has been generated tweaking Mozilla Foundation [https://soloist.ai/](Solo) generated code. You can see the original at [elmundoesimperfecto at soloist](https://soloist.ai/elmundoesimperfecto]
+   * The template has been generated tweaking Mozilla Foundation [Solo]](https://soloist.ai/) generated code. You can see the original at [elmundoesimperfecto at soloist](https://soloist.ai/elmundoesimperfecto]
 
 Demo: [ElMundoEsImperfecto](https://elmundoesimperfecto.com)
 
