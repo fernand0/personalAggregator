@@ -10,7 +10,7 @@ layout: default
     {% for post in site.posts %}
                   <div class="animate-entry feature col d-flex flex-column mb-5">
                     <div class="f1otqxop">
-                      <h3 class="f1gbvfvs"><a href="{{ post.url | prepend: site.url }}">
+                      <h3 class="f1gbvfvs"><a href="{{ post.siteUrl | prepend: site.url }}">
 			{% if post.title != "" %}
 		          {{ post.title | truncate: 25 }}
                         {% else %}
