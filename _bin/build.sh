@@ -42,6 +42,9 @@ echo "Working directory: $(pwd)"
 echo "Activating Python virtual environment..."
 . "${PYTHON_VENV_BIN}/activate" # Use PYTHON_VENV_BIN
 
+echo "Installing Python dependencies..."
+pip install -r "${PROJECT_ROOT}/requirements.txt"
+
 echo "Backing up old posts..."
 BACKUP_DIR="/tmp/posts_backup_$(date +%s)"
 mkdir -p "$BACKUP_DIR"
