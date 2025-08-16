@@ -1,3 +1,7 @@
+**This branch contains the published version of the website.** For the project's source code and template, please refer to the `master` branch.
+
+---
+
 This site is a personal aggregator and it is developped with jekyll-pages. It neds:
 
 * The program generating the posts: [personalAggregator.py](https://github.com/fernand0/scripts/blob/master/personalAggregator.py) 
