@@ -47,8 +47,12 @@ Before you begin, ensure you have the following installed:
 
     The build script (`_bin/build.sh`) assumes these scripts are located at specific paths. You **must** update these paths inside the script to match where you've placed them.
 
-3.  **Python Environment**
-    The build script will automatically create and manage a dedicated Python virtual environment for the aggregation scripts and their dependencies within the project directory (`.personalAggregator`).
+3.  **Set up Python Environment**
+    It's recommended to use a Python virtual environment for the aggregation scripts.
+    Once activated, install the Python dependencies:
+    ```bash
+    pip install -r requirements.txt
+    ```
 
 4.  **Install Jekyll Dependencies**
     ```bash
