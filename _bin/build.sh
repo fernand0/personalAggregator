@@ -9,7 +9,7 @@ set -e
 # Example: PERSONAL_AGGREGATOR_SCRIPT="/path/to/your/personalAggregator.py"
 # If it's located in a 'scripts' folder at the project root, you can use:
 # PERSONAL_AGGREGATOR_SCRIPT="${PROJECT_ROOT}/scripts/personalAggregator.py"
-PERSONAL_AGGREGATOR_SCRIPT="/usr/src/scripts/personalAggregator.py" # Default: Update this to your path
+PERSONAL_AGGREGATOR_SCRIPT="${PROJECT_ROOT}/_bin/personalAggregator.py" # Default: Update this to your path
 
 # Path to your Python virtual environment's 'bin' directory.
 # This is where the 'activate' script and 'python' executable are located.
@@ -41,6 +41,9 @@ echo "Working directory: $(pwd)"
 
 echo "Activating Python virtual environment..."
 . "${PYTHON_VENV_BIN}/activate" # Use PYTHON_VENV_BIN
+
+echo "Installing Python dependencies..."
+pip install -r "${PROJECT_ROOT}/requirements.txt"
 
 echo "Backing up old posts..."
 BACKUP_DIR="/tmp/posts_backup_$(date +%s)"
