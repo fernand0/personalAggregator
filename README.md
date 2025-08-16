@@ -42,7 +42,7 @@ Before you begin, ensure you have the following installed:
 
 2.  **Get the Python Scripts**
     This template relies on external Python scripts for content aggregation. You will need to fetch them:
-    *   **Aggregator Script:** [personalAggregator.py](https://github.com/fernand0/scripts/blob/master/personalAggregator.py)
+    *   **Aggregator Script:** Place [personalAggregator.py](https://github.com/fernand0/scripts/blob/master/personalAggregator.py) into the `_bin/` directory of this project.
     *   **Dependency:** [socialModules](https://github.com/fernand0/socialModules/)
 
     The build script (`_bin/build.sh`) assumes these scripts are located at specific paths. You **must** update these paths inside the script to match where you've placed them.
