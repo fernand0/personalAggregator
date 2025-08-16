@@ -11,10 +11,7 @@ set -e
 # PERSONAL_AGGREGATOR_SCRIPT="${PROJECT_ROOT}/scripts/personalAggregator.py"
 PERSONAL_AGGREGATOR_SCRIPT="${PROJECT_ROOT}/_bin/personalAggregator.py" # Default: Update this to your path
 
-# Path to your Python virtual environment's 'bin' directory.
-# This is where the 'activate' script and 'python' executable are located.
-# Example: PYTHON_VENV_BIN="/home/youruser/.socialBots/bin"
-PYTHON_VENV_BIN="$HOME/.socialBots/bin" # Default: Update this to your path
+
 
 # --- Internal Variables (Do not modify below this line) ---
 # Derive PROJECT_ROOT from the script's location for portability.
