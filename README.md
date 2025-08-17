@@ -1,87 +1,82 @@
-# Personal Aggregator with Jekyll
+# Personal Aggregator
 
-This project is a personal content aggregator built with Jekyll and Python. It automatically fetches content from various sources (like RSS feeds), generates posts, and publishes them as a static website using GitHub Pages.
-
-This `master` branch serves as a template for anyone who wants to set up their own personal aggregator site.
-
-**Live Demo:** [ElMundoEsImperfecto](https://elmundoesimperfecto.com)
-
----
-
-## How it Works
-
-This project uses two main branches for a clean workflow:
-
-*   **`master`**: This branch. It contains the source code and template for the site. You do your work here.
-*   **`gh-pages`**: This branch contains the content for the live, published website. The build script automatically updates this branch.
-
-The process is managed by a build script that:
-1.  Runs a Python script to fetch content and create Jekyll posts.
-2.  Switches to the `gh-pages` branch.
-3.  Commits the new posts and pushes them.
-4.  GitHub Pages detects the changes on the `gh-pages` branch and builds/deploys the final website.
-
----
+`personalAggregator.py` is a Python script designed to aggregate content from various sources based on user-defined rules, and generate markdown files suitable for static site generators like Jekyll.
 
 ## Prerequisites
 
-Before you begin, ensure you have the following installed:
-*   [Git](https://git-scm.com/)
-*   [Ruby](https://www.ruby-lang.org/en/downloads/) and [Bundler](https://bundler.io/)
-*   [Python](https://www.python.org/downloads/) (3.x recommended)
+*   Python 3.x
+*   pip (Python package installer)
 
----
+## Installation
 
-## Setup and Configuration
-
-1.  **Clone this Repository**
+1.  **Clone the repository:**
     ```bash
-    git clone https://github.com/fernand0/personalAggregator.git
-    cd your-repo-name
+    git clone https://github.com/your-username/personalAggregator.git
+    cd personalAggregator
     ```
 
-2.  **Get the Python Scripts**
-    This template relies on external Python scripts for content aggregation. You will need to fetch them:
-    *   **Aggregator Script:** Place [personalAggregator.py](https://github.com/fernand0/scripts/blob/master/personalAggregator.py) into the `_bin/` directory of this project.
-    *   **Dependencies:** These will be installed via `requirements.txt`.
-
-    The build script (`_bin/build.sh`) assumes these scripts are located at specific paths. You **must** update these paths inside the script to match where you've placed them.
-
-3.  **Set up Python Environment**
-    It's recommended to use a Python virtual environment for the aggregation scripts.
-    Once activated, install the Python dependencies:
+2.  **Install dependencies:**
     ```bash
     pip install -r requirements.txt
     ```
 
-4.  **Install Jekyll Dependencies**
-    ```bash
-    bundle install
-    ```
+## Configuration (`rules.json`)
 
-5.  **Configure Your Content Sources**
-    You will need to edit your local copy of `personalAggregator.py` to fetch content from your desired sources (RSS feeds, APIs, etc.).
+The script uses a JSON file (e.g., `rules.json`) to define the aggregation rules. This file should contain a list of rule objects, where each object specifies how to fetch and process content from a particular URL.
 
----
+Each rule object can have the following properties:
+
+*   `url` (string, required): The URL of the page to scrape.
+*   `selector` (string, required): A CSS selector to identify the main content block for each item.
+*   `title_selector` (string, required): A CSS selector to extract the title of each item within its content block.
+*   `date_selector` (string, required): A CSS selector to extract the date of each item within its content block.
+*   `date_format` (string, optional): The format of the date string (e.g., `%Y-%m-%d`). If omitted, `dateparser` will attempt to parse the date automatically.
+*   `tags` (array of strings, optional): A list of tags to apply to the generated markdown post.
+*   `output_filename_prefix` (string, optional): A prefix to use for the generated markdown filename.
+
+**Example `rules.json`:**
+
+```json
+[
+  {
+    "url": "https://example.com/blog",
+    "selector": ".post-item",
+    "title_selector": ".post-title a",
+    "date_selector": ".post-date",
+    "date_format": "%Y-%m-%d",
+    "tags": ["blog", "example"],
+    "output_filename_prefix": "example-blog"
+  },
+  {
+    "url": "https://anothersite.com/news",
+    "selector": "article.news-entry",
+    "title_selector": "h2.entry-title",
+    "date_selector": ".entry-meta .date",
+    "tags": ["news"],
+    "output_filename_prefix": "another-news"
+  }
+]
+```
 
 ## Usage
 
-Once everything is configured, using the project is simple:
+Run the `personalAggregator.py` script from the root of the repository.
 
-1.  **Run the Build Script**
-    From the project root on the `master` branch, run:
-    ```bash
-    ./_bin/build.sh
-    ```
-    *You may need to make it executable first: `chmod +x _bin/build.sh`*
+```bash
+python _bin/personalAggregator.py [OPTIONS]
+```
 
-2.  **Done!**
-    The script will handle everything. Check your repository's settings to find your site's URL on GitHub Pages.
+**Options:**
 
----
-## Credits
+*   `--config-file <path>`: Path to your JSON configuration file (e.g., `rules.json`). **Required.**
+*   `--output-dir <path>`: Directory where the generated markdown post files will be saved (e.g., `_posts/`). **Required.**
+*   `--num-posts <number>`: The maximum number of posts to generate for each rule. Defaults to 1.
+*   `--log-level <level>`: Set the logging level (DEBUG, INFO, WARNING, ERROR, CRITICAL). Defaults to INFO.
 
-*   This site was originally based on [@sharu725's cards](https://github.com/sharu725/cards).
-*   The Jekyll template was tweaked from Mozilla Foundation's [Solo](https://soloist.ai/).
+**Example Command:**
 
-For more themes, visit [https://jekyll-themes.com](https://jekyll-themes.com).
+To generate 5 posts from your `rules.json` file and save them to the `_posts/` directory with INFO level logging:
+
+```bash
+python _bin/personalAggregator.py --config-file rules.json --output-dir _posts/ --num-posts 5 --log-level INFO
+```
