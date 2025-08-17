@@ -1,2 +1,2 @@
 dateparser
-social-modules@git+ssh://git@github.com/exampleuser/socialModules@dist
+social-modules@git+ssh://git@github.com/fernand0/socialModules
