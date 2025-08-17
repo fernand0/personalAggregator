@@ -7,10 +7,10 @@ layout: default
                 <!--<h2 class="animate-entry text-center f1f45za8">Services Offered by El mundo es imperfecto</h2>-->
                 <div class="row row-cols-1 gx-5 row-cols-lg-3">
 
-    {% for post in site.posts reversed %}   
+    {% for post in site.posts %}
                   <div class="animate-entry feature col d-flex flex-column mb-5">
                     <div class="f1otqxop">
-                      <h3 class="f1gbvfvs"><a href="{{ post.url | prepend: site.url }}">
+			    <h3 class="f1gbvfvs"><a href="{{ post.siteUrl }}"> <!-- | prepend: site.url }}">-->
 			{% if post.title != "" %}
 		          {{ post.title | truncate: 25 }}
                         {% else %}
