@@ -1,5 +1,3 @@
-**This branch contains the published version of the website.** For the project's source code and template, please refer to the `master` branch.
-
 # Personal Aggregator with Jekyll
 
 This project is a personal content aggregator built with Jekyll and Python. It automatically fetches content from various sources (like RSS feeds), generates posts, and publishes them as a static website using GitHub Pages.
@@ -44,13 +42,17 @@ Before you begin, ensure you have the following installed:
 
 2.  **Get the Python Scripts**
     This template relies on external Python scripts for content aggregation. You will need to fetch them:
-    *   **Aggregator Script:** [personalAggregator.py](https://github.com/fernand0/scripts/blob/master/personalAggregator.py)
-    *   **Dependency:** [socialModules](https://github.com/fernand0/socialModules/)
+    *   **Aggregator Script:** Place [personalAggregator.py](https://github.com/fernand0/scripts/blob/master/personalAggregator.py) into the `_bin/` directory of this project.
+    *   **Dependencies:** These will be installed via `requirements.txt`.
 
     The build script (`_bin/build.sh`) assumes these scripts are located at specific paths. You **must** update these paths inside the script to match where you've placed them.
 
 3.  **Set up Python Environment**
-    It's recommended to use a Python virtual environment for the aggregation scripts and their dependencies.
+    It's recommended to use a Python virtual environment for the aggregation scripts.
+    Once activated, install the Python dependencies:
+    ```bash
+    pip install -r requirements.txt
+    ```
 
 4.  **Install Jekyll Dependencies**
     ```bash
