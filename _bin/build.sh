@@ -2,6 +2,7 @@
 
 # 1. Exit immediately if a command exits with a non-zero status.
 set -e
+set -x
 
 # --- User Configuration ---
 # Path to your personalAggregator.py script.
@@ -9,11 +10,16 @@ set -e
 # Example: PERSONAL_AGGREGATOR_SCRIPT="/path/to/your/personalAggregator.py"
 # If it's located in the '_bin' folder at the project root:
 PERSONAL_AGGREGATOR_SCRIPT="${PROJECT_ROOT}/_bin/personalAggregator.py" # Default: Update this to your path
+PERSONAL_AGGREGATOR_SCRIPT="${HOME}/usr/src/scripts/personalAggregator.py" # Default: Update this to your path
 
 # --- Internal Variables (Do not modify below this line) ---
 # Derive PROJECT_ROOT from the script's location for portability.
 SCRIPT_DIR=$(dirname -- "$(realpath -- "$0")")
 PROJECT_ROOT=$(dirname -- "$SCRIPT_DIR") # Assumes _bin is in the project root
+
+echo $PROJECT_ROOT
+cd $PROJECT_ROOT
+
 
 POSTS_DIR="${PROJECT_ROOT}/_posts"
 SITE_DIR="${PROJECT_ROOT}/_site"
