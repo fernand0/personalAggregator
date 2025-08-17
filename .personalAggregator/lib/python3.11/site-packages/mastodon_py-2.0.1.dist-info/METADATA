@@ -1,0 +1,106 @@
+Metadata-Version: 2.2
+Name: Mastodon.py
+Version: 2.0.1
+Summary: Python wrapper for the Mastodon API
+Author-email: Lorenz Diener <lorenzd+mastodonpypypi@gmail.com>
+License: MIT
+Project-URL: Repository, https://github.com/halcy/Mastodon.py
+Project-URL: Documentation, https://mastodonpy.readthedocs.io/
+Keywords: mastodon,api,microblogging
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Communications
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
+Description-Content-Type: text/x-rst
+License-File: LICENSE
+Requires-Dist: requests>=2.4.2
+Requires-Dist: python-dateutil
+Requires-Dist: python-magic-bin; platform_system == "Windows"
+Requires-Dist: python-magic; platform_system != "Windows"
+Requires-Dist: decorator>=4.0.0
+Requires-Dist: blurhash>=1.1.4
+Provides-Extra: webpush
+Requires-Dist: http_ece>=1.0.5; extra == "webpush"
+Requires-Dist: cryptography>=1.6.0; extra == "webpush"
+Provides-Extra: blurhash
+Requires-Dist: blurhash>=1.1.4; extra == "blurhash"
+Provides-Extra: test
+Requires-Dist: pytest; extra == "test"
+Requires-Dist: pytest-cov; extra == "test"
+Requires-Dist: vcrpy; extra == "test"
+Requires-Dist: pytest-vcr; extra == "test"
+Requires-Dist: pytest-mock; extra == "test"
+Requires-Dist: requests-mock; extra == "test"
+Requires-Dist: pytz; extra == "test"
+Requires-Dist: pytest-retry; extra == "test"
+Provides-Extra: test-old
+Requires-Dist: pytest; extra == "test-old"
+Requires-Dist: pytest-cov; extra == "test-old"
+Requires-Dist: vcrpy; extra == "test-old"
+Requires-Dist: pytest-vcr; extra == "test-old"
+Requires-Dist: pytest-mock; extra == "test-old"
+Requires-Dist: requests-mock; extra == "test-old"
+Requires-Dist: pytz; extra == "test-old"
+Provides-Extra: docs
+Requires-Dist: sphinx-rtd-theme; extra == "docs"
+
+Mastodon.py
+===========
+Python wrapper for the Mastodon ( https://github.com/mastodon/mastodon/ ) API.
+Feature complete for public API as of Mastodon version 4.3.0 and easy to get started with:
+
+.. code-block:: python
+
+    from mastodon import Mastodon
+
+    # Register your app! This only needs to be done once (per server, or when 
+    # distributing rather than hosting an application, most likely per device and server). 
+    # Uncomment the code and substitute in your information:
+    '''
+    Mastodon.create_app(
+        'pytooterapp',
+        api_base_url = 'https://mastodon.social',
+        to_file = 'pytooter_clientcred.secret'
+    )
+    '''
+
+    # Then, log in. This can be done every time your application starts, or you can use the persisted information:
+    mastodon = Mastodon(client_id = 'pytooter_clientcred.secret',)
+    print(mastodon.auth_request_url())
+
+    # open the URL in the browser and paste the code you get
+    mastodon.log_in(
+        code=input("Enter the OAuth authorization code: "),
+        to_file="pytooter_usercred.secret"
+    )
+
+    # To post, create an actual API instance:
+    mastodon = Mastodon(access_token = 'pytooter_usercred.secret')
+    mastodon.toot('Tooting from Python using #mastodonpy !')
+
+You can install Mastodon.py via pypi:
+
+.. code-block:: Bash
+
+   pip install Mastodon.py
+
+We currently try to support Python 3.7 and above, and try to at least not break Python 3 versions
+below that. Python 2 support is no longer a goal.
+
+Full documentation and basic usage examples can be found
+at https://mastodonpy.readthedocs.io/en/stable/ . Some more extensive examples can be
+found at https://github.com/halcy/MastodonpyExamples
+
+Acknowledgements
+----------------
+Mastodon.py contains work by a large amount of contributors, many of which have
+put significant work into making it a better library. You can find some information
+about who helped with which particular feature or fix in the changelog.
+
+.. image:: https://circleci.com/gh/halcy/Mastodon.py.svg?style=svg
+    :target: https://app.circleci.com/pipelines/github/halcy/Mastodon.py
+.. image:: https://codecov.io/gh/halcy/Mastodon.py/branch/master/graph/badge.svg
+    :target: https://codecov.io/gh/halcy/Mastodon.py
+
