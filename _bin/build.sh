@@ -10,7 +10,8 @@ set -x
 # Example: PERSONAL_AGGREGATOR_SCRIPT="/path/to/your/personalAggregator.py"
 # If it's located in the '_bin' folder at the project root:
 PERSONAL_AGGREGATOR_SCRIPT="${PROJECT_ROOT}/_bin/personalAggregator.py" # Default: Update this to your path
-PERSONAL_AGGREGATOR_SCRIPT="${HOME}/usr/src/scripts/personalAggregator.py" # Default: Update this to your path
+PERSONAL_AGGREGATOR_SCRIPT="${HOME}/usr/src/web/deGitHub/personalAggregator/_bin/personalAggregator.py" # Default: Update this to your path
+#PERSONAL_AGGREGATOR_SCRIPT="${HOME}/usr/src/scripts/personalAggregator.py" # Default: Update this to your path
 
 # --- Internal Variables (Do not modify below this line) ---
 # Derive PROJECT_ROOT from the script's location for portability.
@@ -71,7 +72,9 @@ fi
 
 echo "Generating new posts..."
 "${PYTHON_VENV_BIN}/python" "$PERSONAL_AGGREGATOR_SCRIPT" \
-    "$POSTS_DIR" > /tmp/personal.log # Use PYTHON_VENV_BIN, PERSONAL_AGGREGATOR_SCRIPT, POSTS_DIR
+	--config-file $HOME/.mySocial/config/.rssElmundo \
+	--output-dir "$POSTS_DIR" \
+       	> /tmp/personal.log # Use PYTHON_VENV_BIN, PERSONAL_AGGREGATOR_SCRIPT, POSTS_DIR
 
 echo "Configuring Ruby environment..."
 export GEM_HOME="$HOME/gems"

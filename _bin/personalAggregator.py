@@ -23,7 +23,7 @@ import socialModules.moduleRules
 #
 # There are mainly some RSS sites (blogs) and a Twitter account.
 #
-# File: ~/.myconfig/social/.rssElmundo
+# File: ~/.myConfig/social/.rssElmundo
 #
 # [Blog1]
 # url:http://example.blogalia.com/
@@ -69,10 +69,9 @@ LINE_FORMATS = {
     "general": "* {title}\n",
 }
 
-FRONT_MATTER_TEMPLATE = """
----
+FRONT_MATTER_TEMPLATE = """---
 layout: post
-title:  \"{title}\"\ndate:   {date}\ncategories: {categories}\n---
+title:  \"{title}\"\nsiteUrl: \"{url}\"\ndate:   {date}\ncategories: {categories}\n---
 """
 
 
@@ -150,13 +149,16 @@ def _get_front_matter(api_source, post_key, post_date):
             category = service.replace('.', '')
             break
 
+    url = api_source.getUrl()
+
     return FRONT_MATTER_TEMPLATE.format(
-        title=title, date=post_date, categories=category
+        title=title, url=url, date=post_date, categories=category
     )
 
 
 def generate_post_file(apiSrc, posts, output_dir, post_index, key, num_posts):
     myFilePath = pathlib.Path(output_dir)
+    logging.info(f"Output directory is: {output_dir}")
     if not myFilePath.is_dir():
         logging.error(f"Output directory not found: {output_dir}")
         sys.exit("The path should be a directory and it should exist")
