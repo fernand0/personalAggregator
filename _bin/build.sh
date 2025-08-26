@@ -4,6 +4,8 @@
 set -e
 #set -x
 
+LOG_FILE=/tmp/build.log
+
 # --- User Configuration ---
 # Path to your personalAggregator.py script.
 # This script is responsible for generating your posts.
@@ -18,8 +20,7 @@ PERSONAL_AGGREGATOR_SCRIPT="${HOME}/usr/src/web/deGitHub/personalAggregator/_bin
 SCRIPT_DIR=$(dirname -- "$(realpath -- "$0")")
 PROJECT_ROOT=$(dirname -- "$SCRIPT_DIR") # Assumes _bin is in the project root
 
-echo $PROJECT_ROOT
-cd $PROJECT_ROOT
+cd $PROJECT_ROOT >> $LOG_FILE 2>&1
 
 
 POSTS_DIR="${PROJECT_ROOT}/_posts"
@@ -34,69 +35,53 @@ ORIGINAL_BRANCH=$(git symbolic-ref --short HEAD)
 TARGET_BRANCH="gh-pages"
 
 if [ "$ORIGINAL_BRANCH" != "$TARGET_BRANCH" ]; then
-  echo "Current branch is '$ORIGINAL_BRANCH'. Switching to '$TARGET_BRANCH'வதற்கான"
-  git checkout "$TARGET_BRANCH"
+  git checkout "$TARGET_BRANCH" >> $LOG_FILE 2>&1
   # Ensure the local branch is updated with the remote
-  git pull origin "$TARGET_BRANCH"
+  git pull origin "$TARGET_BRANCH" >> $LOG_FILE 2>&1
 fi
 
 # --- Execution ---
-cd "$PROJECT_ROOT" # Use PROJECT_ROOT
-echo "Working directory: $(pwd)"
+cd "$PROJECT_ROOT" >> $LOG_FILE 2>&1 # Use PROJECT_ROOT
 
 # Create virtual environment if it doesn't exist
 if [ ! -d "$VENV_DIR" ]; then
-  echo "Creating Python virtual environment at $VENV_DIR..."
-  python3 -m venv "$VENV_DIR"
+  python3 -m venv "$VENV_DIR" >> $LOG_FILE 2>&1
 fi
 
 # Check if the activate script exists before sourcing
 if [ ! -f "${PYTHON_VENV_BIN}/activate" ]; then
-  echo "Error: Virtual environment activation script not found at ${PYTHON_VENV_BIN}/activate."
-  echo "Please ensure 'python3 -m venv' was successful or check your Python installation."
+  echo "Error: Virtual environment activation script not found at ${PYTHON_VENV_BIN}/activate." >> $LOG_FILE 2>&1
+  echo "Please ensure 'python3 -m venv' was successful or check your Python installation." >> $LOG_FILE 2>&1
   exit 1
 fi
 
-echo "Activating Python virtual environment..."
 . "${PYTHON_VENV_BIN}/activate" # Use PYTHON_VENV_BIN
 
-echo "Installing Python dependencies..."
-pip install -r "${PROJECT_ROOT}/requirements.txt"
+pip install -r "${PROJECT_ROOT}/requirements.txt" >> $LOG_FILE 2>&1
 
-echo "Backing up old posts..."
 BACKUP_DIR="/tmp/posts_backup_$(date +%s)"
 mkdir -p "$BACKUP_DIR"
 if [ -n "$(ls -A "$POSTS_DIR" 2>/dev/null)" ]; then # Use POSTS_DIR
-    mv "$POSTS_DIR"/* "$BACKUP_DIR/" # Use POSTS_DIR
+    mv "$POSTS_DIR"/* "$BACKUP_DIR/" >> $LOG_FILE 2>&1 # Use POSTS_DIR
 fi
 
-echo "Generating new posts..."
 "${PYTHON_VENV_BIN}/python" "$PERSONAL_AGGREGATOR_SCRIPT" \
 	--config-file $HOME/.mySocial/config/.rssElmundo \
 	--output-dir "$POSTS_DIR" \
-       	> /tmp/personal.log # Use PYTHON_VENV_BIN, PERSONAL_AGGREGATOR_SCRIPT, POSTS_DIR
+       	>> /tmp/personal.log 2>&1 # Use PYTHON_VENV_BIN, PERSONAL_AGGREGATOR_SCRIPT, POSTS_DIR
 
-echo "Configuring Ruby environment..."
 export GEM_HOME="$HOME/gems"
 export PATH="$HOME/gems/bin:$PATH"
 
-echo "Building Jekyll site..."
-bundle exec jekyll build > /tmp/build.log
+bundle exec jekyll build >> /tmp/build.log 2>&1
 
-echo "Adding and committing new posts..."
-git add "$POSTS_DIR"/* # Use POSTS_DIR
-git commit -m "Publication: $(date +'%%Y-%%m-%%d %%H:%%M:%%S')"
-git push
+git add "$POSTS_DIR"/* >> $LOG_FILE 2>&1 # Use POSTS_DIR
+git commit -m "Publication: $(date +'%%Y-%%m-%%d %%H:%%M:%%S')" >> $LOG_FILE 2>&1
+git push >> $LOG_FILE 2>&1
 
-echo "Cleaning up backup..."
 rm -rf "$BACKUP_DIR"
-
-echo "Build finished successfully."
 
 # --- Git Branch Logic (Return) ---
 if [ "$ORIGINAL_BRANCH" != "$TARGET_BRANCH" ]; then
-  echo "Build complete. Switching back to '$ORIGINAL_BRANCH'வதற்கான"
-  git checkout "$ORIGINAL_BRANCH"
+  git checkout "$ORIGINAL_BRANCH" >> $LOG_FILE 2>&1
 fi
-
-echo "Script finished."
