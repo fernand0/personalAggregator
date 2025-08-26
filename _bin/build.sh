@@ -2,7 +2,7 @@
 
 # 1. Exit immediately if a command exits with a non-zero status.
 set -e
-set -x
+#set -x
 
 # --- User Configuration ---
 # Path to your personalAggregator.py script.
