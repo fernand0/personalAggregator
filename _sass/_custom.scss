@@ -445,3 +445,56 @@ Boxes special
     height: auto;
 }
 
+body {
+  border-top: none;
+}
+
+.navbar {
+  background-color: #004235;
+  padding: 1rem;
+}
+
+.navbar .navbar-brand,
+.navbar .nav-link {
+  color: #fff;
+}
+
+.navbar .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 0.5)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+footer {
+  background-color: #004235;
+  color: #fff;
+}
+
+footer a {
+  color: #fff;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+}
+
+.copyright {
+  text-align: left;
+}
+
+.social-links {
+  text-align: right;
+}
+
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+  }
+
+  .copyright, .social-links {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+}
+
