@@ -2,13 +2,13 @@
 layout: default
 ---
 
-<div class="home py-4 py-md-5">
-  <div class="row flexRow">
+<div class="home">
+  <div class="flexRow">
 	<!--
 	<div class="grid" style="--bs-columns: 3;">
 	-->
     {% for post in site.posts reversed %}   
-      <div class="col-12 col-md-6 col-lg-4">
+      <div class="col">
        <a href="{{ post.url | prepend: site.url }}" class="index-anchor">
 
         <div class="card rounded overflow-hidden">  
@@ -32,8 +32,8 @@ layout: default
     	</div>
     {% endif %}
     {% endfor %}
-		    <!-- <p class="p-0 my-1 mx-0"><span class="post-meta"><small>{{ post.date | date: "%b %-d, %Y" }}</small></span></p> -->
-		    <p class="p-0 my-1 mx-0"><span class="post-meta"><small>{{ post.date | date: "(%H:%M)" }}</small></span></p>
+		    <!-- <p><span class="post-meta"><small>{{ post.date | date: "%b %-d, %Y" }}</small></span></p> -->
+		    <p><span class="post-meta"><small>{{ post.date | date: "(%H:%M)" }}</small></span></p>
 	      <p><small>{{ post.excerpt }} </small></p>
             </div>
           </div>
