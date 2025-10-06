@@ -122,6 +122,10 @@ body {
 #header {
 }
 
+.header-container {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+}
 #main {
 }
 
@@ -445,3 +449,93 @@ Boxes special
     height: auto;
 }
 
+body {
+  border-top: none;
+}
+
+.navbar {
+  background-color: #004235;
+  padding: 1rem;
+}
+
+.navbar .navbar-brand,
+.navbar .nav-link {
+  color: #fff;
+}
+
+.navbar .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 0.5)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+// Pie de página limpio y optimizado
+
+.footer-green {
+  background: #004235;
+  color: #fff;
+  padding: 1rem 0;
+  text-align: center;
+}
+
+.footer-contact,
+.footer-author,
+.footer-social {
+  display: block;
+  margin-bottom: 0.5rem;
+  list-style: none;
+  padding: 0;
+}
+
+.footer-contact a {
+  color: #fff;
+  text-decoration: underline;
+  font-size: 1.1rem;
+}
+
+.footer-author {
+  font-size: 1.1rem;
+}
+
+.footer-social a {
+  text-decoration: none;
+  color: #fff;
+  margin: 0 0.3rem;
+}
+
+.footer-social i {
+  font-size: 1.5rem;
+  vertical-align: middle;
+}
+
+.footer-white {
+  background: #fff;
+  color: #444;
+  padding: 0.7rem 0;
+  font-size: 0.95rem;
+  border-top: 1px solid #eee;
+  text-align: left;
+}
+
+.footer-white .copyright {
+  margin-left: 1.4rem;
+  display: block;
+  text-align: left;
+}
+
+.footer-white a {
+  color: #004235;
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .footer-green {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .footer-white {
+    text-align: center;
+  }
+  .footer-white .copyright {
+    margin-left: 0;
+    text-align: center;
+  }
+}

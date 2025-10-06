@@ -6,51 +6,17 @@ layout: compress
 <html>
   {% include head.html %}
 
-  <body class="body-container">
-  <div id="__next">
-    <div class="">
-      <main class="f1sjmlt5 fc5u1ue">
-        <div class="f1qhszvy f8obqgr font-size-Default">
-          <div id="9cfa5d4f-7392-49fd-9c46-378c93785932">
-            <div id="Header" class="f1l8s9jt f1hx8b4t  shadow-none">
-              <div class="container g-0 d-flex flex-column ">
-                <div>
-                  <header
-                    class="d-flex flex-wrap  justify-content-between align-items-center position-relative f9mv53e fapbs0i">
-                    <a class="d-flex align-items-center mb-md-0 me-md-auto text-decoration-none logo-container"
-                      role="button">
-                      <h3>El mundo es imperfecto</h3>
-                    </a></header>
-                </div>
-              </div>
-              <div class="fvqp18g">
-                <hr class="f1s373rs" />
-              </div>
-            </div>
-          </div>
-          <div id="f44056e7-0dd2-423d-b4d7-c37945d27b5b">
-            <div id="Introduction" class="position-relative f1f9gjmx f1hx8b4t">
-              <div class="container g-0 position-relative bg-transparent f9mv53e">
-                <div class="row flex-lg-row align-items-center position-relative f13d3my3 col-12 f1y7ruft">
-                  <div class="animate-entry p-0 col-lg-12 right-col ">
-                    <h1 class="display-5 lh-2 mb-4">El mundo es imperfecto, todos podemos hacer algo para mejorarlo.
-                    </h1>
-                    <div class="fkkneai f16kwsur">Este sitio agrega enlaces a diferentes sitios donde publico textos,
-                      imágenes y otras actividades.</div>
-                    <div class="d-grid gap-2 d-md-flex"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+  <body>
+    {% include navigation.html %}
+    {% include header.html %}
 
-      {{ content }}
-	</div>
+    <div class="container">
+      <div class="wrapper">{{ content }}</div>
     </div>
-
-    {% include contact.html %}
 
     {% include footer.html %}
 
+    <script src="{{ '/js/main.js' | relative_url }}"></script>
+    {% if site.analytics %}{% include analytics.html %}{% endif %}
   </body>
 </html>

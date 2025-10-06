@@ -9,7 +9,9 @@
 title: El Mundo Es Imperfecto
 email: web@elmundoesimperfecto.com
 description: > # this means to ignore newlines until "baseurl:"
-  My personal aggregator. Based on Webjeda Cards is a Bootstrap based jekyll theme for portfolio, photography or any kind of blog.
+  El mundo es imperfecto, todos podemos hacer algo para mejorarlo. Este sitio agrega enlaces a diferentes sitios donde publico textos, imágenes y otras actividades.
+subtitle: "El mundo es imperfecto, todos podemos hacer algo para mejorarlo."
+explanation: "Este sitio agrega enlaces a diferentes sitios donde publico textos, imágenes y otras actividades."
   
 url: "https://elmundoesimperfecto.com" # the base hostname & protocol for your site
 baseurl: "/" # the subpath of your site, e.g. /blog
