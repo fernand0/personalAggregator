@@ -1,31 +1,92 @@
 ---
 layout: default
 ---
-          <div id="ca89958b-ca07-4839-ab11-49f334ab24a6">
-            <div id="Services" class="f18gr2zl f1hx8b4t">
-              <div class="container g-0 f9mv53e">
-                <!--<h2 class="animate-entry text-center f1f45za8">Services Offered by El mundo es imperfecto</h2>-->
-                <div class="row row-cols-1 gx-5 row-cols-lg-3">
 
-    {% for post in site.posts %}
-                  <div class="animate-entry feature col d-flex flex-column mb-5">
-                    <div class="f1otqxop">
-			    <h3 class="f1gbvfvs"><a href="{{ post.siteUrl }}"> <!-- | prepend: site.url }}">-->
-			{% if post.title != "" %}
-		          {{ post.title | truncate: 25 }}
-                        {% else %}
-			  Entradas
-			{% endif %}
-				    </a></h3>
-		    <p >{{ post.date | date: "(%y-%m-%d %H:%M)" }}</p>
-                      <div class="pe-4 f3p0cc9">
-                        <p>
-   {{ post.excerpt }}
-			</p>
-	      </div>
-	    </div>
-	  </div>
-      {% endfor %}
-		</div>
-	      </div>
-	    </div>
+<div class="home">
+  <div class="flexRow">
+	<!--
+	<div class="grid" style="--bs-columns: 3;">
+	-->
+    {% for post in site.posts reversed %}   
+      <div class="col">
+       <a href="{{ post.url | prepend: site.url }}" class="index-anchor">
+
+        <div class="card rounded overflow-hidden">  
+          <div class="image">
+            {% if post.image %}
+            <img src="{{post.image | relative_url}}" alt="{{post.title}}">
+            {% endif %}
+            <div class="card-body">
+
+    {% assign cats = "twitter,mastodon,reddit,github,flickr,goodreads,youtube,wordpress,devto,tumblr,imgur,blipfm" | split: "," %}
+	    
+    {% for cat in post.categories %}
+    {% if cats contains cat %}
+    	<div class="{{post.categories}}">
+    {% endif %}
+    {% endfor %}
+		    <h2 class="panel-title"><small>{{ post.title | truncate: 25 }}</small></h2>
+
+    {% for cat in post.categories %}
+    {% if cats contains cat %}
+    	</div>
+    {% endif %}
+    {% endfor %}
+		    <!-- <p><span class="post-meta"><small>{{ post.date | date: "%b %-d, %Y" }}</small></span></p> -->
+		    <p><span class="post-meta"><small>{{ post.date | date: "(%H:%M)" }}</small></span></p>
+	      <p><small>{{ post.excerpt }} </small></p>
+            </div>
+          </div>
+        </div>
+      </a>
+      </div>
+    {% endfor %}
+  </div>
+</div> 
+    
+<!--
+  <div class="row justify-content-center">
+    <div class="col-md-4">
+        {% if paginator.total_pages > 1 %}
+        <ul class="pagination">
+          {% if paginator.previous_page %}
+            <li class="page-item">
+              <a class="page-link" href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo; Prev</a>
+            </li>
+          {% else %}
+            <li class="page-item disabled">
+              <span class="page-link">Previous</span>
+            </li>
+          {% endif %}
+
+          {% for page in (1..paginator.total_pages) %}
+            {% if page == paginator.page %}
+              <li class="page-item active">
+                <span class="page-link">{{ page }}</span>
+              </li>
+            {% elsif page == 1 %}
+              <li class="page-item">
+                <a class="page-link" href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">{{ page }}</a>
+              </li>
+            {% else %}
+              <li class="page-item">
+                <a class="page-link" href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a></li>
+            {% endif %}
+          {% endfor %}
+
+          {% if paginator.next_page %}
+            <li class="page-item">
+              <a class="page-link" href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Next &raquo;</a>
+            </li>
+          {% else %}
+            <li class="page-item" disabled>
+              <span class="page-link">Next</span>
+            </li>
+          {% endif %}
+          </ul>
+        {% endif %}
+    </div>
+  </div>
+-->
+
+</div>
