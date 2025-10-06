@@ -477,9 +477,18 @@ footer a {
   text-align: center;
 }
 
-.description {
-  font-size: 1.2rem;
+.subtitle {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 300;
   color: #666;
+}
+
+.explanation {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 300;
+  color: #888;
 }
 
 .footer-content {
