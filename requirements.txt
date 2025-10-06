@@ -1,0 +1,6 @@
+dateparser
+<<<<<<< HEAD
+social-modules@git+ssh://git@github.com/fernand0/socialModules@dist
+=======
+social-modules@git+ssh://git@github.com/fernand0/socialModules
+>>>>>>> 3fee65862d21539bea8eeae6b4389e92561ff3f7
