@@ -122,6 +122,10 @@ body {
 #header {
 }
 
+.header-container {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+}
 #main {
 }
 
@@ -489,7 +493,6 @@ body {
 
 .footer-author {
   font-size: 1.1rem;
-  font-weight: bold;
 }
 
 .footer-social a {
