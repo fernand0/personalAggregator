@@ -1,23 +1,31 @@
 ---
 layout: default
 ---
+          <div id="ca89958b-ca07-4839-ab11-49f334ab24a6">
+            <div id="Services" class="f18gr2zl f1hx8b4t">
+              <div class="container g-0 f9mv53e">
+                <!--<h2 class="animate-entry text-center f1f45za8">Services Offered by El mundo es imperfecto</h2>-->
+                <div class="row row-cols-1 gx-5 row-cols-lg-3">
 
-<div class="home">
-  <div class="flexRow">
-	<!--
-	<div class="grid" style="--bs-columns: 3;">
-	-->
-    {% for post in site.posts reversed %}   
-      <div class="col">
-       <a href="{{ post.url | prepend: site.url }}" class="index-anchor">
-
-        <div class="card rounded overflow-hidden">  
-          <div class="image">
-            {% if post.image %}
-            <img src="{{post.image | relative_url}}" alt="{{post.title}}">
-            {% endif %}
-            <div class="card-body">
-
+    {% for post in site.posts %}
+                  <div class="animate-entry feature col d-flex flex-column mb-5">
+                    <div class="f1otqxop">
+			    <h3 class="f1gbvfvs"><a href="{{ post.siteUrl }}"> <!-- | prepend: site.url }}">-->
+			{% if post.title != "" %}
+		          {{ post.title | truncate: 25 }}
+                        {% else %}
+			  Entradas
+			{% endif %}
+				    </a></h3>
+		    <p >{{ post.date | date: "(%y-%m-%d %H:%M)" }}</p>
+                      <div class="pe-4 f3p0cc9">
+                        <p>
+   {{ post.excerpt }}
+			</p>
+	      </div>
+	    </div>
+	  </div>
+      {% endfor %}
     {% assign cats = "twitter,mastodon,reddit,github,flickr,goodreads,youtube,wordpress,devto,tumblr,imgur,blipfm" | split: "," %}
 	    
     {% for cat in post.categories %}
