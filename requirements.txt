@@ -1,1 +1,2 @@
+dateparser
 social-modules@git+ssh://git@github.com/fernand0/socialModules
