@@ -50,6 +50,7 @@ if [ -n "$(ls -A \"$POSTS_DIR\" 2>/dev/null)" ]; then # Use POSTS_DIR
     mv "$POSTS_DIR"/* "$BACKUP_DIR/" # Use POSTS_DIR
 fi
 
+mkdir $POSTS_DIR
 echo "Generating new posts..."
 "${PYTHON_VENV_BIN}/python" "$PERSONAL_AGGREGATOR_SCRIPT" \
     "$POSTS_DIR" > /tmp/personal.log # Use PYTHON_VENV_BIN, PERSONAL_AGGREGATOR_SCRIPT, POSTS_DIR
