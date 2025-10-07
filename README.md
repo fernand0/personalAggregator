@@ -1,11 +1,14 @@
 # Personal Aggregator
 
+> **Note:** Changes should only be made in the `master` branch, as `gh-pages` is the publishing branch.
+
 `personalAggregator.py` is a Python script designed to aggregate content from various sources based on user-defined rules, and generate markdown files suitable for static site generators like Jekyll.
 
 ## Prerequisites
 
 *   Python 3.x
 *   pip (Python package installer)
+*   [socialModules](https://github.com/fernand0/socialModules)
 
 ## Installation
 
