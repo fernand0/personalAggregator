@@ -5,15 +5,6 @@ set -e
 set -x
 
 LOG_FILE=/tmp/build.log
-=======
->>>>>>> 768931dee07ff018ac2072360d03653584960c41
->>>>>>> master
-=======
-set -x
-
-LOG_FILE=/tmp/build.log
->>>>>>> master
-
 # --- User Configuration ---
 # Path to your personalAggregator.py script.
 # This script is responsible for generating your posts.
