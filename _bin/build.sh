@@ -2,17 +2,16 @@
 
 # 1. Exit immediately if a command exits with a non-zero status.
 set -e
-<<<<<<< HEAD
 set -x
 
 LOG_FILE=/tmp/build.log
 =======
-<<<<<<< HEAD
-#set -x
+>>>>>>> 768931dee07ff018ac2072360d03653584960c41
+>>>>>>> master
+=======
+set -x
 
 LOG_FILE=/tmp/build.log
-=======
->>>>>>> 768931dee07ff018ac2072360d03653584960c41
 >>>>>>> master
 
 # --- User Configuration ---
@@ -21,9 +20,9 @@ LOG_FILE=/tmp/build.log
 # Example: PERSONAL_AGGREGATOR_SCRIPT="/path/to/your/personalAggregator.py"
 # If it's located in the '_bin' folder at the project root:
 PERSONAL_AGGREGATOR_SCRIPT="${PROJECT_ROOT}/_bin/personalAggregator.py" # Default: Update this to your path
-<<<<<<< HEAD
 PERSONAL_AGGREGATOR_SCRIPT="${HOME}/usr/src/web/deGitHub/personalAggregator/_bin/personalAggregator.py" # Default: Update this to your path
 #PERSONAL_AGGREGATOR_SCRIPT="${HOME}/usr/src/scripts/personalAggregator.py" # Default: Update this to your path
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 PERSONAL_AGGREGATOR_SCRIPT="${HOME}/usr/src/web/deGitHub/personalAggregator/_bin/personalAggregator.py" # Default: Update this to your path
@@ -31,16 +30,18 @@ PERSONAL_AGGREGATOR_SCRIPT="${HOME}/usr/src/web/deGitHub/personalAggregator/_bin
 =======
 >>>>>>> 768931dee07ff018ac2072360d03653584960c41
 >>>>>>> master
+=======
+>>>>>>> master
 
 # --- Internal Variables (Do not modify below this line) ---
 # Derive PROJECT_ROOT from the script's location for portability.
 SCRIPT_DIR=$(dirname -- "$(realpath -- "$0")")
 PROJECT_ROOT=$(dirname -- "$SCRIPT_DIR") # Assumes _bin is in the project root
 
-<<<<<<< HEAD
 cd $PROJECT_ROOT >> $LOG_FILE 2>&1
 
 
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 cd $PROJECT_ROOT >> $LOG_FILE 2>&1
@@ -48,6 +49,8 @@ cd $PROJECT_ROOT >> $LOG_FILE 2>&1
 
 =======
 >>>>>>> 768931dee07ff018ac2072360d03653584960c41
+>>>>>>> master
+=======
 >>>>>>> master
 POSTS_DIR="${PROJECT_ROOT}/_posts"
 SITE_DIR="${PROJECT_ROOT}/_site"
@@ -62,8 +65,11 @@ TARGET_BRANCH="gh-pages"
 
 if [ "$ORIGINAL_BRANCH" != "$TARGET_BRANCH" ]; then
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
+>>>>>>> master
+=======
 >>>>>>> master
   git checkout "$TARGET_BRANCH" >> $LOG_FILE 2>&1
   # Ensure the local branch is updated with the remote
@@ -76,6 +82,7 @@ cd "$PROJECT_ROOT" >> $LOG_FILE 2>&1 # Use PROJECT_ROOT
 # Create virtual environment if it doesn't exist
 if [ ! -d "$VENV_DIR" ]; then
   python3 -m venv "$VENV_DIR" >> $LOG_FILE 2>&1
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 =======
@@ -95,13 +102,18 @@ if [ ! -d "$VENV_DIR" ]; then
   python3 -m venv "$VENV_DIR"
 >>>>>>> 768931dee07ff018ac2072360d03653584960c41
 >>>>>>> master
+=======
+>>>>>>> master
 fi
 
 # Check if the activate script exists before sourcing
 if [ ! -f "${PYTHON_VENV_BIN}/activate" ]; then
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
+>>>>>>> master
+=======
 >>>>>>> master
   echo "Error: Virtual environment activation script not found at ${PYTHON_VENV_BIN}/activate." >> $LOG_FILE 2>&1
   echo "Please ensure 'python3 -m venv' was successful or check your Python installation." >> $LOG_FILE 2>&1
@@ -138,6 +150,7 @@ rm -rf "$BACKUP_DIR"
 if [ "$ORIGINAL_BRANCH" != "$TARGET_BRANCH" ]; then
   git checkout "$ORIGINAL_BRANCH" >> $LOG_FILE 2>&1
 fi
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 =======
@@ -188,4 +201,6 @@ fi
 
 echo "Script finished."
 >>>>>>> 768931dee07ff018ac2072360d03653584960c41
+>>>>>>> master
+=======
 >>>>>>> master
