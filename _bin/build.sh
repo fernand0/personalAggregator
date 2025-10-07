@@ -2,7 +2,7 @@
 
 # 1. Exit immediately if a command exits with a non-zero status.
 set -e
-#set -x
+set -x
 
 LOG_FILE=/tmp/build.log
 
