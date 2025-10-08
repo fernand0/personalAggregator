@@ -1,0 +1,4 @@
+---
+layout: none
+permalink: /.well-known/keybase.txt
+---
