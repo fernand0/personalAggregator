@@ -7,24 +7,52 @@
       Fernando Tricas García
     </div>
     <div class="footer-social">
+      <a target="_blank" href="{{ "/feed.xml" | relative_url }}">
+        <img src="{{ "/images/rss.svg" | relative_url }}" alt="RSS Feed" width="20" height="20">
+      </a>
       {% if site.facebook %}
       <a target="_blank" href="{{site.facebook}}">
-        <i class="fa fa-facebook-square"></i>
+        <img src="{{ "/images/facebook.svg" | relative_url }}" alt="Facebook" width="20" height="20">
       </a>
       {% endif %}
       {% if site.twitter %}
       <a target="_blank" href="{{site.twitter}}">
-        <i class="fa fa-twitter-square"></i>
+        <img src="{{ "/images/twitter.svg" | relative_url }}" alt="Twitter" width="20" height="20">
       </a>
       {% endif %}
       {% if site.github %}
       <a target="_blank" href="{{site.github}}">
-        <i class="fa fa-github-square"></i>
+        <img src="{{ "/images/github.svg" | relative_url }}" alt="GitHub" width="20" height="20">
       </a>
       {% endif %}
       {% if site.email %}
       <a target="_blank" href="mailto:{{site.email}}">
-        <i class="fa fa-envelope"></i>
+        <img src="{{ "/images/envelope.svg" | relative_url }}" alt="Email" width="20" height="20">
+      </a>
+      {% endif %}
+      {% if site.mastodon %}
+      <a target="_blank" href="{{site.mastodon}}">
+        <img src="{{ "/images/mastodon.svg" | relative_url }}" alt="Mastodon" width="20" height="20">
+      </a>
+      {% endif %}
+      {% if site.bluesky %}
+      <a target="_blank" href="{{site.bluesky}}">
+        <img src="{{ "/images/bluesky.svg" | relative_url }}" alt="Bluesky" width="20" height="20">
+      </a>
+      {% endif %}
+      {% if site.linkedin %}
+      <a target="_blank" href="{{site.linkedin}}">
+        <img src="{{ "/images/linkedin.svg" | relative_url }}" alt="LinkedIn" width="20" height="20">
+      </a>
+      {% endif %}
+      {% if site.instagram %}
+      <a target="_blank" href="{{site.instagram}}">
+        <img src="{{ "/images/instagram.svg" | relative_url }}" alt="Instagram" width="20" height="20">
+      </a>
+      {% endif %}
+      {% if site.flickr %}
+      <a target="_blank" href="{{site.flickr}}">
+        <img src="{{ "/images/flickr.svg" | relative_url }}" alt="Flickr" width="20" height="20">
       </a>
       {% endif %}
     </div>
