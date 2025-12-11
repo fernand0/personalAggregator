@@ -1,5 +1,6 @@
 #!/bin/sh
 
+set -x
 # 1. Exit immediately if a command exits with a non-zero status.
 set -e
 # set -x
