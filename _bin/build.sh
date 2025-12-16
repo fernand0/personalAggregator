@@ -68,7 +68,7 @@ fi
 "${PYTHON_VENV_BIN}/python" "$PERSONAL_AGGREGATOR_SCRIPT" \
 	--config-file $HOME/.mySocial/config/.rssElmundo \
 	--output-dir "$POSTS_DIR" \
-       	>> /tmp/personal.log 2>&1 # Use PYTHON_VENV_BIN, PERSONAL_AGGREGATOR_SCRIPT, POSTS_DIR
+       	>> $HOME/usr/var/log/personal.log 2>&1 # Use PYTHON_VENV_BIN, PERSONAL_AGGREGATOR_SCRIPT, POSTS_DIR
 
 export GEM_HOME="$HOME/gems"
 export PATH="$HOME/gems/bin:$PATH"
