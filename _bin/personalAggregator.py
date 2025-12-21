@@ -168,6 +168,7 @@ def delete_old_posts(output_dir, new_post_url, new_post_filename):
         new_post_filename (str): The filename of the new post.
     """
     logging.info(f"Deleting old posts from {new_post_url} in {output_dir}")
+    logging.info(f"Files: {os.listdir(output_dir)}")
     for filename in os.listdir(output_dir):
         logging.info(f"Filename: {filename}")
         if not filename.endswith(".md"):
