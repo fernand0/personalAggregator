@@ -64,7 +64,7 @@ mkdir -p "$BACKUP_DIR"
 if [ -n "$(ls -A "$POSTS_DIR" 2>/dev/null)" ]; then # Use POSTS_DIR
     cp "$POSTS_DIR"/*.md "$BACKUP_DIR/" >> $LOG_FILE 2>&1 # Use POSTS_DIR
     git rm "$POSTS_DIR"/*.md
-    git add -A >> $LOG_FILE 2>&1 # Use POSTS_DIR
+    git commit -m "Moved posts to backup and removed from repo"
 fi
 
 "${PYTHON_VENV_BIN}/python" "$PERSONAL_AGGREGATOR_SCRIPT" \
