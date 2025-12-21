@@ -1,6 +1,5 @@
 #!/bin/sh
 
-set -x
 # 1. Exit immediately if a command exits with a non-zero status.
 set -e
 # set -x
@@ -21,7 +20,7 @@ PERSONAL_AGGREGATOR_SCRIPT="${HOME}/usr/src/web/deGitHub/personalAggregator/_bin
 SCRIPT_DIR=$(dirname -- "$(realpath -- "$0")")
 PROJECT_ROOT=$(dirname -- "$SCRIPT_DIR") # Assumes _bin is in the project root
 
-cd $PROJECT_ROOT >> $LOG_FILE 2>&1
+cd $PROJECT_ROOT > $LOG_FILE 2>&1
 
 
 POSTS_DIR="${PROJECT_ROOT}/_posts"
@@ -69,12 +68,12 @@ fi
 "${PYTHON_VENV_BIN}/python" "$PERSONAL_AGGREGATOR_SCRIPT" \
 	--config-file $HOME/.mySocial/config/.rssElmundo \
 	--output-dir "$POSTS_DIR" \
-       	>> /tmp/personal.log 2>&1 # Use PYTHON_VENV_BIN, PERSONAL_AGGREGATOR_SCRIPT, POSTS_DIR
+       	>> $HOME/usr/var/log/personal.log 2>&1 # Use PYTHON_VENV_BIN, PERSONAL_AGGREGATOR_SCRIPT, POSTS_DIR
 
 export GEM_HOME="$HOME/gems"
 export PATH="$HOME/gems/bin:$PATH"
 
-bundle exec jekyll build >> /tmp/build.log 2>&1
+bundle exec jekyll build >> $LOG_FILE 2>&1
 
 git add "$POSTS_DIR"/* >> $LOG_FILE 2>&1 # Use POSTS_DIR
 git commit -m "Publication: $(date +'%%Y-%%m-%%d %%H:%%M:%%S')" >> $LOG_FILE 2>&1

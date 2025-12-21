@@ -159,7 +159,7 @@ def _get_front_matter(api_source, post_key, post_date):
 
 
 def delete_old_posts(output_dir, new_post_url, new_post_filename):
-    """
+    """"
     Deletes old posts from the same source.
 
     Args:
@@ -169,6 +169,7 @@ def delete_old_posts(output_dir, new_post_url, new_post_filename):
     """
     logging.info(f"Deleting old posts from {new_post_url} in {output_dir}")
     for filename in os.listdir(output_dir):
+        logging.info(f"Filename: {filename}")
         if not filename.endswith(".md"):
             continue
 
