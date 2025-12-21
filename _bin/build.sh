@@ -64,6 +64,7 @@ mkdir -p "$BACKUP_DIR"
 if [ -n "$(ls -A "$POSTS_DIR" 2>/dev/null)" ]; then # Use POSTS_DIR
     cp "$POSTS_DIR"/*.md "$BACKUP_DIR/" >> $LOG_FILE 2>&1 # Use POSTS_DIR
     git rm "$POSTS_DIR"/*.md
+    git add "$POSTS_DIR"
     git commit -m "Moved posts to backup and removed from repo"
 fi
 
@@ -72,8 +73,8 @@ fi
 	--output-dir "$POSTS_DIR" \
        	>> $HOME/usr/var/log/personal.log 2>&1 # Use PYTHON_VENV_BIN, PERSONAL_AGGREGATOR_SCRIPT, POSTS_DIR
 
-export GEM_HOME="$HOME/gems"
-export PATH="$HOME/gems/bin:$PATH"
+# export GEM_HOME="$HOME/gems"
+# export PATH="$HOME/gems/bin:$PATH"
 
 # bundle exec jekyll build >> $LOG_FILE 2>&1
 
