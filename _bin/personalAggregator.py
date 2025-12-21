@@ -3,7 +3,9 @@
 import argparse
 import dateparser
 import logging
+import os
 import pathlib
+import re
 import sys
 
 import socialModules
@@ -156,6 +158,37 @@ def _get_front_matter(api_source, post_key, post_date):
     )
 
 
+def delete_old_posts(output_dir, new_post_url, new_post_filename):
+    """
+    Deletes old posts from the same source.
+
+    Args:
+        output_dir (str): The directory where the posts are stored.
+        new_post_url (str): The URL of the source of the new post.
+        new_post_filename (str): The filename of the new post.
+    """
+    logging.info(f"Deleting old posts from {new_post_url} in {output_dir}")
+    for filename in os.listdir(output_dir):
+        if not filename.endswith(".md"):
+            continue
+
+        filepath = os.path.join(output_dir, filename)
+        if filepath == new_post_filename:
+            continue
+
+        try:
+            with open(filepath, "r") as f:
+                content = f.read()
+                match = re.search(r"siteUrl:\s*\"([^\"]+)\"", content)
+                if match:
+                    site_url = match.group(1)
+                    if site_url == new_post_url:
+                        logging.info(f"Deleting old post: {filepath}")
+                        os.remove(filepath)
+        except Exception as e:
+            logging.error(f"Error processing file {filepath}: {e}")
+
+
 def generate_post_file(apiSrc, posts, output_dir, post_index, key, num_posts):
     myFilePath = pathlib.Path(output_dir)
     logging.info(f"Output directory is: {output_dir}")
@@ -205,6 +238,7 @@ def generate_post_file(apiSrc, posts, output_dir, post_index, key, num_posts):
                 fSal.write(LINE_FORMATS[service].format(title=title, link=link))
             else:
                 fSal.write(LINE_FORMATS["general"].format(title=title, link=link))
+    delete_old_posts(output_dir, apiSrc.getUrl(), str(postFile))
 
 def main():
     args = parse_arguments()
