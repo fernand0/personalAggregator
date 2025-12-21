@@ -75,7 +75,7 @@ export PATH="$HOME/gems/bin:$PATH"
 
 # bundle exec jekyll build >> $LOG_FILE 2>&1
 
-git add "$POSTS_DIR"/* >> $LOG_FILE 2>&1 # Use POSTS_DIR
+git add "$POSTS_DIR" >> $LOG_FILE 2>&1 # Use POSTS_DIR
 git commit -m "Publication: $(date +'%%Y-%%m-%%d %%H:%%M:%%S')" >> $LOG_FILE 2>&1
 git push >> $LOG_FILE 2>&1
 
