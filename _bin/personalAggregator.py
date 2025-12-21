@@ -182,6 +182,7 @@ def delete_old_posts(output_dir, new_post_url, new_post_filename):
                 content = f.read()
                 match = re.search(r"siteUrl:\s*\"([^\"]+)\"", content)
                 if match:
+                    logging.info(f"Match: {match.group(1)}")
                     site_url = match.group(1)
                     if site_url == new_post_url:
                         logging.info(f"Deleting old post: {filepath}")
