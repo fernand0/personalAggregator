@@ -2,7 +2,7 @@
 
 # 1. Exit immediately if a command exits with a non-zero status.
 set -e
-# set -x
+set -x
 
 LOG_FILE=/tmp/build.log
 
@@ -62,7 +62,7 @@ pip install -r "${PROJECT_ROOT}/requirements.txt" >> $LOG_FILE 2>&1
 BACKUP_DIR="/tmp/posts_backup_$(date +%s)"
 mkdir -p "$BACKUP_DIR"
 if [ -n "$(ls -A "$POSTS_DIR" 2>/dev/null)" ]; then # Use POSTS_DIR
-    mv "$POSTS_DIR"/* "$BACKUP_DIR/" >> $LOG_FILE 2>&1 # Use POSTS_DIR
+    git mv "$POSTS_DIR"/* "$BACKUP_DIR/" >> $LOG_FILE 2>&1 # Use POSTS_DIR
 fi
 
 "${PYTHON_VENV_BIN}/python" "$PERSONAL_AGGREGATOR_SCRIPT" \
@@ -76,7 +76,7 @@ export PATH="$HOME/gems/bin:$PATH"
 # bundle exec jekyll build >> $LOG_FILE 2>&1
 
 git add "$POSTS_DIR" >> $LOG_FILE 2>&1 # Use POSTS_DIR
-git commit -m "Publication: $(date +'%%Y-%%m-%%d %%H:%%M:%%S')" >> $LOG_FILE 2>&1
+git commit -m "Publication: $(date "+%Y-%m-%d %H:%M:%S")" >> $LOG_FILE 2>&1
 git push >> $LOG_FILE 2>&1
 
 rm -rf "$BACKUP_DIR"
