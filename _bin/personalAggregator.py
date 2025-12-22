@@ -168,7 +168,9 @@ def delete_old_posts(output_dir, new_post_url, new_post_filename):
         new_post_filename (str): The filename of the new post.
     """
     logging.info(f"Deleting old posts from {new_post_url} in {output_dir}")
+    # logging.info(f"Files: {os.listdir(output_dir)}")
     for filename in os.listdir(output_dir):
+        # logging.info(f"Filename: {filename}")
         if not filename.endswith(".md"):
             continue
 
@@ -181,9 +183,8 @@ def delete_old_posts(output_dir, new_post_url, new_post_filename):
                 content = f.read()
                 match = re.search(r"siteUrl:\s*\"([^\"]+)\"", content)
                 if match:
+                    # logging.info(f"Match: {match.group(1)}")
                     site_url = match.group(1)
-                    logging.info(f"Match: {match.group(1)}")
-
                     if site_url == new_post_url:
                         logging.info(f"Deleting old post: {filepath}")
                         os.remove(filepath)

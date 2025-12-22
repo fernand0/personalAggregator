@@ -1,0 +1,62 @@
+---
+layout: none
+permalink: /.well-known/keybase.txt
+---
+
+==================================================================
+https://keybase.io/fernand0
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://elmundoesimperfecto.com
+  * I am fernand0 (https://keybase.io/fernand0) on keybase.
+  * I have a public key ASC6ADGcyh6Fj6RNRKtiZ7eWXPL8kzy1jIhFItsY4xRZzQo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "01201b6ed87c0f4e1d129cb8e0689a8d5397a68f7b6e2fe2a14a6553904e0ee633410a",
+      "host": "keybase.io",
+      "kid": "0120ba00319cca1e858fa44d44ab6267b7965cf2fc933cb58c884522db18e31459cd0a",
+      "uid": "719d6385fe6871d09b849317476bec19",
+      "username": "fernand0"
+    },
+    "merkle_root": {
+      "ctime": 1668106603,
+      "hash": "7ff4387da85d9d93f654b124b4eaf049f820a4349c436aa39783fb4750bb30e2a509ca375a18445e36079011d95cf90d88eac0036294a96e563da20e0c6b5bda",
+      "hash_meta": "f1ae8d1cbc290a1e8ede05d1840a92033894e7707ff5b0cb1c6ee8ba215642e4",
+      "seqno": 23528618
+    },
+    "service": {
+      "entropy": "dnhGTQSbTVA9LeTKtLpBEMcm",
+      "hostname": "elmundoesimperfecto.com",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "6.0.2"
+  },
+  "ctime": 1668106664,
+  "expire_in": 504576000,
+  "prev": "f27dbad94766d87f7de068262eed3e018c4b4f8e4cbf297808475b8f6c46ac2d",
+  "seqno": 47,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgugAxnMoehY+kTUSrYme3llzy/JM8tYyIRSLbGOMUWc0Kp3BheWxvYWTESpcCL8Qg8n262Udm2H994GgmLu0+AYxLT45Mvyl4CEdbj2xGrC3EIDU38OUR69osIjhaiV0cznHK10HgZAeTA7xCpAvQpaZ+AgHCo3NpZ8RA5hX22kGqNduIVEA7Durba40Eo8suw7i7MyauRGvdGrBdOTBHxvz5mqL9f7VVwu6FYEZGfOKz78Xw/zNIDeG2DKhzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEINkxP4G62BYNx0ehtEadDuFHwLMdrmsf+8Aotiytwo7Ao3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/fernand0
+
+==================================================================
+
