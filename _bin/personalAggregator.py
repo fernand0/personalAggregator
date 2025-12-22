@@ -218,6 +218,7 @@ def generate_post_file(apiSrc, posts, output_dir, post_index, key, num_posts):
             if isinstance(post, str):
                 continue
             title = apiSrc.getPostTitle(post)
+            title = title.replace('<', '&lt;').replace('>', '&gt;')
             link = apiSrc.getPostLink(post)
 
             # Some of my posts (mainly in social networks include
