@@ -2,7 +2,7 @@
 
 # 1. Exit immediately if a command exits with a non-zero status.
 set -e
-# set -x
+set -x
 
 LOG_FILE=/tmp/build.log
 
@@ -63,7 +63,7 @@ BACKUP_DIR="/tmp/posts_backup_$(date +%s)"
 mkdir -p "$BACKUP_DIR"
 if [ -n "$(ls -A "$POSTS_DIR" 2>/dev/null)" ]; then # Use POSTS_DIR
     cp "$POSTS_DIR"/*.md "$BACKUP_DIR/" >> $LOG_FILE 2>&1 # Use POSTS_DIR
-    git rm "$POSTS_DIR"/*.md >> $LOG_FILE 2>&1
+    git rm --ignore-unmatch "$POSTS_DIR"/*.md >> $LOG_FILE 2>&1
     git add "$POSTS_DIR" >> $LOG_FILE 2>&1
     git commit -m "Moved posts to $BACKUP_DIR and removed from repo" >> $LOG_FILE 2>&1 
 fi
