@@ -1,0 +1,39 @@
+/*
+ * elmundoesimperfecto Shared Theme Colors
+ * ========================================
+ * 
+ * To change the theme color, edit the variables below.
+ * All sites reference this file.
+ */
+
+:root {
+  /* Main theme color - Green #004235 */
+  --theme-color: #004235;
+  --theme-color-light: #1e6053;
+  --theme-color-dark: #002417;
+  
+  /* Alternative theme colors (uncomment to use) */
+  /* Blue theme:
+  --theme-color: #004235;
+  --theme-color-light: #1e6053;
+  --theme-color-dark: #002417;
+  */
+  
+  /* Red theme:
+  --theme-color: #004235;
+  --theme-color-light: #1e6053;
+  --theme-color-dark: #002417;
+  */
+  
+  /* Purple theme:
+  --theme-color: #004235;
+  --theme-color-light: #1e6053;
+  --theme-color-dark: #002417;
+  */
+  
+  /* Teal theme:
+  --theme-color: #004235;
+  --theme-color-light: #1e6053;
+  --theme-color-dark: #002417;
+  */
+}
