@@ -42,3 +42,101 @@ $on-laptop: 800px;
 
 // Import partials from `sass_dir` (defaults to `_sass`)
 @import "layout", "custom", "syntax-highlighting";
+
+
+// Header banner (shared with blog theme)
+.header-banner {
+  background: linear-gradient(135deg, #004235 0%, #005c4a 100%);
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.header-banner .header-title {
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+  color: #fff;
+  font-weight: 400;
+}
+
+.header-banner .header-title a {
+  color: #fff;
+  text-decoration: none;
+  margin-right: 0.5rem;
+}
+
+.header-banner .header-title a:hover {
+  opacity: 0.9;
+}
+
+.header-banner .header-tagline {
+  font-style: italic;
+  opacity: 0.9;
+  font-weight: 300;
+}
+
+.header-banner .header-explanation {
+  font-size: 0.75rem;
+  opacity: 0.85;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+@media (min-width: 38em) {
+  .header-banner {
+    padding: 0.875rem 2rem;
+  }
+  
+  .header-banner .header-title {
+    font-size: 1.1rem;
+  }
+  
+  .header-banner .header-explanation {
+    font-size: 0.85rem;
+  }
+}
+
+
+// Site footer (shared with blog theme)
+.site-footer {
+  margin-top: 4rem;
+  padding: 1.5rem 0;
+  border-top: 3px solid #004235;
+  text-align: center;
+  background: #004235;
+  color: #fff;
+}
+
+.footer-social {
+  margin-bottom: 1rem;
+}
+
+.footer-social a {
+  display: inline-block;
+  margin: 0 0.5rem;
+  color: #fff;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+
+.footer-social a:hover {
+  opacity: 1;
+}
+
+.footer-social svg {
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+  fill: currentColor;
+}
+
+.footer-copyright {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.8);
+}
+
+.footer-copyright a {
+  color: #fff;
+  text-decoration: underline;
+}
